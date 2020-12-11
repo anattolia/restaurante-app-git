@@ -15,7 +15,7 @@
     </div>
 
     <div class="footer">
-      <h1>UN</h1>
+      <h2>Misión TIC 2022</h2>
     </div>
   </div>
 </template>
