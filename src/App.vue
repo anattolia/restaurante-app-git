@@ -15,9 +15,7 @@
     </div>
 
     <div class="footer">
-      <h1>Calle 48 # 27-01. Barrancabermeja, Colombia
-        Teléfonos: +57 323 590 9805 - 6220238 - 6021901
-        E-mail: carbonlena@hotmail.com</h1>
+      <h1>UN</h1>
     </div>
   </div>
 </template>
