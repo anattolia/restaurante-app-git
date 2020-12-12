@@ -42,10 +42,10 @@
     }
     #UserBalance h2{
         font-size: 50px;
-        color: #283747;
+        color: #181818;
     }
     #UserBalance span{
-        color: crimson;
+        color: #f5a018;
         font-weight: bold;
     }
 </style>
