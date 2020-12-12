@@ -1,65 +1,116 @@
 <template>
+  
   <div id="Cliente">
     
-    <div id="CrearCliente">
-      <h2>
-        El cliente <span> {{ cliente }}, </span> se creó correctamente.
-      </h2>
-    </div>
+    <!-- El formulario para acceder: -->
+
+    <form id="form1" onsubmit="getFormvalue()">
+     
+        <input class="boton" type="submit" value="Crear">
+        <input class="boton" type="submit" value="Buscar">
+        <input class="boton" type="submit" value="Modificar">
+        <input class="boton" type="submit" value="Eliminar"><br>
+
+        
+        <br>Nombre y Apellido: 
+        <input type="text" name="nombre" value><br><br>
+        Teléfono:
+        <input type="text" name="telefono" value><br><br>
+        Cédula:
+        <input type="text" name="cedula" value><br><br>
+        Fecha de nacimiento:
+        <input type="text" name="cedula" value><br><br>
+        Dirección
+        <input type="text" name="direccion" value><br><br>
+        Barrio:
+        <input type="text" name="barrio" value><br><br>
+      </form>
   
   </div>
 </template>
 
 <script>
-
-import axios from "axios";
 export default {
-  name: "CrearCliente",
+  name: "Cliente",
   data: function() {
     return {
-      cliente: ""
+      cliente: "none"
     };
   },
   created: function() {
     this.cliente = this.$route.params.cliente;
-    let self = this;
-    axios
-      .get("https://cajero-api2.herokuapp.com/cliente/crear/" + this.cliente)
-      .then(result => {
-        self.cliente = result.data.cliente;
-      })
-      .catch(error => {
-        alert("ERROR Servidor");
-      });
   },
-}
 
-    
+methods: {
+
+  submit : function(){
+    this.$refs.form.submit()
+  },
+
+      getCliente: function(){
+        if(this.$route.name != "cliente"){
+          let cliente = localStorage.getItem("current_cliente")
+          this.$router.push({name: "cliente", params:{ cliente: cliente }})
+        }
+      },
+
+    },
+
+    beforeCreate: function(){
+      localStorage.setItem('current_cliente', 'juan')
+      localStorage.setItem('isAuth', true)
+
+      this.$router.push({name: "cliente", params:{ cliente: 'juan' }})
+    }
+  };
+
+
 </script>
 
 <style>
 #Cliente {
-  width: 100%;
-  height: 100%;
+  height: auto;
+  top: 0%;
+  text-align: center;
+  background: transparent;
+  position: relative;
+  justify-content: space-evenly;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
 }
 #Cliente h2 {
-  font-size: 50px;
-  color: #181818;
+  font-size: 8em;
+  color: #fbfbfb;
 }
-#Cliente span {
-  color: #f5a018;
-  font-weight: bold;
-}
+#Cliente button{
+    color: #E5E7E9;
+    background: #f5a018;
+    border: 1px solid #E5E7E9;
+    border-radius: 5px;
+    padding: 20px 20px;
+  }
+  #Cliente button button:hover{
+    color: #f1f1f1;
+    background: #E5E7E9;
+    border: 1px solid #E5E7E9;
+  }
+  #form1 {
+  color: #E5E7E9;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #E5E7E9;
+  border-radius: 5px;
+  padding: 25px 25px;
+  justify-content: left;
+  justify-items: left;
+  text-align: left;
+  position: relative;
+  top: 0%;
+  }
 #form1 .boton {
   color: #E5E7E9;
   background: #181818;
   border: 1px solid #E5E7E9;
   border-radius: 5px;
   padding: 5px 5px;
-  
+  vertical-align: middle;
 }
 </style>
