@@ -18,7 +18,7 @@
         <input type="submit" value="Eliminar">
       </form>
     <h2>
-      Hola <span> {{ clientename }}, </span> ¡Bienvenido!
+      Hola <span> {{ cliente }}, </span> ¡Bienvenido!
     </h2>
   </div>
 </template>
@@ -28,11 +28,11 @@ export default {
   name: "Cliente",
   data: function() {
     return {
-      clientename: "none"
+      cliente: "none"
     };
   },
   created: function() {
-    this.clientename = this.$route.params.clientename;
+    this.cliente = this.$route.params.cliente;
   }
 };
 </script>

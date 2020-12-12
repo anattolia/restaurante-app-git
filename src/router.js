@@ -12,16 +12,22 @@ const router = new vueRouter({
                 name: "root",
                 component: App
             },
-        {   
-            path: '/user/:username',
-            name: "user",
-            component: User
-        },
-        {
-            path: '/user/balance/:username',
-            name: "user_balance",
-            component: UserBalance
-        },
-    ]
-})
+            {
+                path: '/user/:username',
+                name: "user",
+                component: User
+            },
+            {
+                path: '/user/balance/:username',
+                name: "user_balance",
+                component: UserBalance
+            },
+            {
+                path: '/cliente/:username',
+                name: "cliente",
+                component: UserBalance
+            },
+        ]
+    })
+
 export default router
