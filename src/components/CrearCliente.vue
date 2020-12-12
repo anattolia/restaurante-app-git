@@ -35,16 +35,15 @@
       name: 'UserBalance',
       data: function (){
           return {
-              username: "",
-              balance: 0
+              cliente: ""
           }
       },
       created: function() {
 
-          this.username = this.$route.params.username
+          this.cliente = this.$route.params.cliente
 
           let self = this
-          axios.get("https://restaurante-back-g1.herokuapp.com/crear/cliente/" + this.username)
+          axios.get("https://restaurante-back-g1.herokuapp.com/crear/cliente/" + this.cliente)
               .then((result) => {
                   self.balance = result.data.balance
               })
