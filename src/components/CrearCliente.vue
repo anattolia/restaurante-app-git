@@ -30,6 +30,30 @@
 </template>
 
 <script>
+ import axios from 'axios';
+  export default {
+      name: 'UserBalance',
+      data: function (){
+          return {
+              username: "",
+              balance: 0
+          }
+      },
+      created: function() {
+
+          this.username = this.$route.params.username
+
+          let self = this
+          axios.get("https://restaurante-back-g1.herokuapp.com/crear/cliente/" + this.username)
+              .then((result) => {
+                  self.balance = result.data.balance
+              })
+              .catch((error) => {
+                  alert("ERROR Servidor");
+              });
+      }
+  }
+
 export default {
   name: "Cliente",
   data: function() {
