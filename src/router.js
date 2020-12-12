@@ -28,6 +28,11 @@ const router = new vueRouter({
                 name: "cliente",
                 component: Cliente
             },
+            {
+                path: '/cliente/crear/:cliente',
+                name: "crear_cliente",
+                component: CrearCliente
+            },
         ]
     })
 
