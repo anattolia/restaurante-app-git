@@ -25,7 +25,7 @@ const router = new vueRouter({
             {
                 path: '/cliente/:username',
                 name: "cliente",
-                component: UserBalance
+                component: Cliente
             },
         ]
     })

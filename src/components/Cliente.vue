@@ -51,7 +51,7 @@ export default {
   color: #d6d6d6;
 }
 #User span {
-  color: crimson;
+  color: #f5a018;
   font-weight: bold;
 }
 </style>
